@@ -29,22 +29,35 @@
     a:hover {
       color: #aeea00;
     }
-    .btn-primary {
-      background-color: #d5ff5f;
-      color: #0f172a;
+    .btn {
       padding: 0.75rem 2rem;
       border-radius: 9999px;
       font-weight: 700;
       display: inline-block;
       user-select: none;
-      box-shadow: 0 6px 10px rgba(213, 255, 95, 0.6);
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: all 0.3s ease;
       text-decoration: none;
+      text-align: center;
+    }
+    .btn-primary {
+      background-color: #d5ff5f;
+      color: #0f172a;
+      box-shadow: 0 4px 10px rgba(213, 255, 95, 0.6);
     }
     .btn-primary:hover {
       background-color: #aeea00;
-      transform: scale(1.05);
-      box-shadow: 0 8px 14px rgba(213, 255, 95, 0.8);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(213, 255, 95, 0.8);
+    }
+    .btn-secondary {
+      background-color: #1e293b;
+      color: #d5ff5f;
+      border: 2px solid #d5ff5f;
+    }
+    .btn-secondary:hover {
+      background-color: #d5ff5f;
+      color: #0f172a;
+      transform: translateY(-2px);
     }
     /* Smooth scroll offset for fixed header */
     section {
@@ -131,7 +144,7 @@
     <p class="text-lg sm:text-xl text-gray-200 mb-6 drop-shadow-md">
       Flutter Developer & UI/UX Designer – Crafting beautiful apps and seamless interfaces.
     </p>
-    <a href="#projects" class="btn-primary">View My Work</a>
+    <a href="#projects" class="btn btn-primary">View My Work</a>
   </div>
 </section>
 
@@ -146,7 +159,7 @@
       <br /><br />
       Whether working on dynamic projects like <strong>QuizzyBea</strong> or building sleek product listing apps, I bring a unique blend of technical skill and design sensibility to every challenge.
       <br /><br />
-      Outside of coding and designing, I enjoy exploring new tech trends, refining my skills, and continuously pushing the boundaries of what’s possible in mobile development.
+      Outside of coding and designing, I enjoy exploring new tech trends, refining my skills, and continuously pushing the boundaries of what's possible in mobile development.
     </p>
 
     <div class="about-images" aria-label="Photos of Safvan">
@@ -191,8 +204,8 @@
         </div>
 
         <div class="mt-4 flex flex-col gap-3">
-          <a href="https://drive.google.com/file/d/1YoO15LqXaa7e-wTTqN34UNMdZ2FQMQhY/view?usp=sharing" target="_blank" class="btn-primary inline-block">Download App</a>
-          <a href="https://github.com/Safvanvp/ChatUp" target="_blank" class="btn-primary inline-block bg-[#8bc34a] hover:bg-[#7cb342]">View Source Code</a>
+          <a href="https://drive.google.com/file/d/1YoO15LqXaa7e-wTTqN34UNMdZ2FQMQhY/view?usp=sharing" target="_blank" class="btn btn-primary">Download App</a>
+          <a href="https://github.com/Safvanvp/ChatUp" target="_blank" class="btn btn-secondary">View Source Code</a>
         </div>
       </div>
 
@@ -210,8 +223,8 @@
         </div>
 
         <div class="mt-4 flex flex-col gap-3">
-          <a href="https://drive.google.com/file/d/11tTR8oreCeK7LMsXJCtcQ03v3r8yW_bw/view?usp=sharing" target="_blank" class="btn-primary inline-block">Download App</a>
-          <a href="https://github.com/Safvanvp/QuizzyBea.in.git" target="_blank" class="btn-primary inline-block bg-[#8bc34a] hover:bg-[#7cb342]">View Source Code</a>
+          <a href="https://drive.google.com/file/d/11tTR8oreCeK7LMsXJCtcQ03v3r8yW_bw/view?usp=sharing" target="_blank" class="btn btn-primary">Download App</a>
+          <a href="https://github.com/Safvanvp/QuizzyBea.in.git" target="_blank" class="btn btn-secondary">View Source Code</a>
         </div>
       </div>
 
@@ -229,14 +242,10 @@
         </div>
 
         <div class="mt-4 flex flex-col gap-3">
-          <a href="https://drive.google.com/file/d/1-3xb7-pqdK2LFD2YWAVBvJnkeoeiPDe_/view?usp=sharing" target="_blank" class="btn-primary inline-block">Download App</a>
-          <a href="https://github.com/Safvanvp/ProductListingApp" target="_blank" class="btn-primary inline-block bg-[#8bc34a] hover:bg-[#7cb342]">View Source Code</a>
+          <a href="https://drive.google.com/file/d/1-3xb7-pqdK2LFD2YWAVBvJnkeoeiPDe_/view?usp=sharing" target="_blank" class="btn btn-primary">Download App</a>
+          <a href="https://github.com/Safvanvp/ProductListingApp" target="_blank" class="btn btn-secondary">View Source Code</a>
         </div>
       </div>
-
-      
-
-      <!-- Add more project cards here if you want -->
 
     </div>
   </section>
@@ -276,23 +285,22 @@
   </style>
   
 
-
   <!-- CV Section -->
   <section id="cv" class="max-w-4xl mx-auto px-6 py-16 bg-[#131a2b] rounded-lg shadow-lg text-center">
     <h2 class="text-4xl mb-6">My CV</h2>
     <p class="text-gray-300 mb-8 max-w-xl mx-auto">
       Interested in working together? Download or view my full CV to learn more about my experience and skills.
     </p>
-    <a href="assets/cv/Safvan VP (5).pdf" target="_blank" class="btn-primary">View/Download CV</a>
+    <a href="assets/cv/Safvan VP (5).pdf" target="_blank" class="btn btn-primary">View/Download CV</a>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="max-w-4xl mx-auto px-6 py-16 text-center">
     <h2 class="text-4xl mb-6">Contact Me</h2>
     <p class="text-gray-300 mb-6 max-w-xl mx-auto">
-      I’m open for freelance projects, collaborations, or just a friendly hello. Reach out anytime!
+      I'm open for freelance projects, collaborations, or just a friendly hello. Reach out anytime!
     </p>
-    <a href="mailto:safvans153@gmail.com" class="btn-primary">Email Me</a>
+    <a href="mailto:safvans153@gmail.com" class="btn btn-primary">Email Me</a>
   </section>
 
   <!-- Footer -->
@@ -325,9 +333,5 @@
   });
 </script>
 
-  
-
 </body>
 </html>
-
-
