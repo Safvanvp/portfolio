@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+  <meta name="description"
+    content="Safvan VP – Flutter Developer & UI/UX Designer. Explore my projects, skills, and portfolio." />
+  <meta property="og:title" content="Safvan – Developer & Designer Portfolio" />
+  <meta property="og:description" content="Crafting beautiful Flutter apps and seamless interfaces." />
+  <meta property="og:image" content="assets/my photo/IMG_3910.JPG" />
+  <meta property="og:type" content="website" />
+  <meta name="keywords" content="Safvan, Flutter Developer, UI/UX Designer, Mobile App Developer, Portfolio" />
+
+
   <link rel="icon" href="assets/icons/Olive-Green SF Icon with Pen Nib.png" type="image/png" />
 
   <!-- AOS CSS -->
@@ -18,17 +29,23 @@
       color: #e0e0e0;
       scroll-behavior: smooth;
     }
-    h1, h2, h3 {
+
+    h1,
+    h2,
+    h3 {
       font-weight: 800;
       color: #d5ff5f;
     }
+
     a {
       color: #d5ff5f;
       transition: color 0.3s;
     }
+
     a:hover {
       color: #aeea00;
     }
+
     .btn {
       padding: 0.75rem 2rem;
       border-radius: 9999px;
@@ -40,31 +57,37 @@
       text-align: center;
       cursor: pointer;
     }
+
     .btn-primary {
       background-color: #d5ff5f;
       color: #0f172a !important;
       box-shadow: 0 4px 10px rgba(213, 255, 95, 0.6);
     }
+
     .btn-primary:hover {
       background-color: #aeea00;
       transform: translateY(-2px);
       box-shadow: 0 6px 14px rgba(213, 255, 95, 0.8);
     }
+
     .btn-secondary {
       background-color: #1e293b;
       color: #d5ff5f !important;
       border: 2px solid #d5ff5f;
     }
+
     .btn-secondary:hover {
       background-color: #d5ff5f;
       color: #0f172a !important;
       transform: translateY(-2px);
       border-color: #d5ff5f;
     }
+
     /* Smooth scroll offset for fixed header */
     section {
       scroll-margin-top: 80px;
     }
+
     /* Project mockup image styling */
     .mockup-container {
       margin-top: 1rem;
@@ -73,6 +96,7 @@
       overflow-x: auto;
       padding-bottom: 0.5rem;
     }
+
     .mockup-container img {
       height: 140px;
       border-radius: 0.5rem;
@@ -81,9 +105,11 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
+
     .mockup-container img:hover {
       transform: scale(1.05);
     }
+
     /* About Me images */
     .about-images {
       margin-top: 2rem;
@@ -92,6 +118,7 @@
       gap: 1.5rem;
       flex-wrap: wrap;
     }
+
     .about-images img {
       width: 160px;
       height: 160px;
@@ -102,22 +129,35 @@
       transition: transform 0.3s ease;
       cursor: pointer;
     }
+
     .about-images img:hover {
       transform: scale(1.1);
       border-color: #aeea00;
       box-shadow: 0 6px 20px rgba(174, 234, 0, 0.9);
     }
+
     /* Green glowing effect on hover for social icons */
     .social-icon img {
       filter: drop-shadow(0 0 0 transparent);
       transition: filter 0.3s ease;
     }
+
     .social-icon:hover img {
       filter: drop-shadow(0 0 8px #aeea00) drop-shadow(0 0 12px #aeea00);
     }
+
+    #loader {
+      transition: opacity 1.5s ease;
+    }
   </style>
 </head>
+
 <body>
+
+  <div id="loader" class="fixed inset-0 bg-[#0f172a] z-50 flex items-center justify-center">
+    <div class="w-10 h-10 border-4 border-dashed border-[#d5ff5f] rounded-full animate-spin"></div>
+  </div>
+
 
   <!-- Navigation -->
   <nav class="fixed top-0 left-0 w-full bg-[#0a1128cc] backdrop-blur-sm z-50 shadow-md">
@@ -133,16 +173,20 @@
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center text-center relative overflow-hidden px-6 pt-20 bg-fixed bg-cover bg-center" style="background-image: url('assets/my photo/IMG_3910.JPG');">
+  <section id="home"
+    class="min-h-screen flex items-center justify-center text-center relative overflow-hidden px-6 pt-20 bg-fixed bg-cover bg-center"
+    style="background-image: url('assets/my photo/IMG_3910.JPG');">
     <!-- Background Image -->
     <div class="absolute inset-0">
-      <img id="bgImage" src="assets/my photo/IMG_3910.JPG" alt="Safvan background" class="w-full h-full object-cover opacity-80 transition-all duration-700" />
+      <img id="bgImage" src="assets/my photo/IMG_3910.JPG" alt="Safvan background"
+        class="w-full h-full object-cover opacity-80 transition-all duration-700" />
       <div class="absolute inset-0 bg-gradient-to-b from-[#0f172a99] to-[#0f172a99]"></div>
     </div>
 
     <!-- Content -->
     <div class="relative z-10 max-w-3xl">
-      <h1 class="text-5xl sm:text-6xl font-extrabold mb-4 leading-tight text-[#d5ff5f] drop-shadow-lg" data-aos="fade-up">
+      <h1 class="text-5xl sm:text-6xl font-extrabold mb-4 leading-tight text-[#d5ff5f] drop-shadow-lg"
+        data-aos="fade-up">
         Hi, I'm Safvan
       </h1>
       <p class="text-lg sm:text-xl text-gray-200 mb-6 drop-shadow-md">
@@ -156,13 +200,17 @@
   <section id="about" class="max-w-4xl mx-auto px-6 py-16">
     <h2 class="text-4xl mb-6 text-center">About Me</h2>
     <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-      I'm Safvan, a passionate hybrid developer and designer with a knack for turning ideas into beautiful, functional Flutter apps and seamless user experiences.
+      I'm Safvan, a passionate hybrid developer and designer with a knack for turning ideas into beautiful, functional
+      Flutter apps and seamless user experiences.
       <br /><br />
-      My journey began with curiosity and a love for design, which evolved into a full-fledged career where creativity meets technology. I thrive on solving complex problems and crafting interfaces that users love.
+      My journey began with curiosity and a love for design, which evolved into a full-fledged career where creativity
+      meets technology. I thrive on solving complex problems and crafting interfaces that users love.
       <br /><br />
-      Whether working on dynamic projects like <strong>QuizzyBea</strong> or building sleek product listing apps, I bring a unique blend of technical skill and design sensibility to every challenge.
+      Whether working on dynamic projects like <strong>QuizzyBea</strong> or building sleek product listing apps, I
+      bring a unique blend of technical skill and design sensibility to every challenge.
       <br /><br />
-      Outside of coding and designing, I enjoy exploring new tech trends, refining my skills, and continuously pushing the boundaries of what's possible in mobile development.
+      Outside of coding and designing, I enjoy exploring new tech trends, refining my skills, and continuously pushing
+      the boundaries of what's possible in mobile development.
     </p>
 
     <div class="about-images" aria-label="Photos of Safvan">
@@ -185,7 +233,7 @@
       <div class="bg-[#1e293b] px-4 py-2 rounded-md shadow-md">Adobe XD</div>
     </div>
   </section>
-  
+
   <!-- Projects -->
   <section id="projects" class="max-w-6xl mx-auto px-6 py-16 bg-[#131a2b] rounded-lg shadow-lg" data-aos="fade-up">
     <h2 class="text-4xl mb-8 text-center">Featured Projects</h2>
@@ -195,9 +243,10 @@
       <div class="bg-[#0f172a] p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
         <h3 class="text-xl mb-2 font-semibold text-[#d5ff5f]">ChatUp</h3>
         <p class="text-gray-400 mb-4">
-          ChatUp is a Flutter app that allows users to chat with each other in real-time. and it is built with Firebase for authentication and firestore for database.
+          ChatUp is a Flutter app that allows users to chat with each other in real-time. and it is built with Firebase
+          for authentication and firestore for database.
         </p>
-        
+
         <!-- App Preview / Mockups -->
         <div class="mockup-container" aria-label="ChatUp app previews">
           <img src="assets/mockup/cu1.png" alt="ChatUp app screen 1 preview" />
@@ -205,7 +254,8 @@
         </div>
 
         <div class="mt-4 flex flex-col gap-3">
-          <a href="https://drive.google.com/file/d/1YoO15LqXaa7e-wTTqN34UNMdZ2FQMQhY/view?usp=sharing" target="_blank" class="btn btn-primary">Download App</a>
+          <a href="https://drive.google.com/file/d/1YoO15LqXaa7e-wTTqN34UNMdZ2FQMQhY/view?usp=sharing" target="_blank"
+            class="btn btn-primary">Download App</a>
           <a href="https://github.com/Safvanvp/ChatUp" target="_blank" class="btn btn-secondary">View Source Code</a>
         </div>
       </div>
@@ -216,7 +266,7 @@
         <p class="text-gray-400 mb-4">
           Flutter quiz app with Firebase integration, global leaderboard, and level progression.
         </p>
-        
+
         <!-- App Preview / Mockups -->
         <div class="mockup-container" aria-label="QuizzyBea app previews">
           <img src="assets/mockup/ase.png" alt="QuizzyBea app screen 1 preview" />
@@ -224,8 +274,10 @@
         </div>
 
         <div class="mt-4 flex flex-col gap-3">
-          <a href="https://drive.google.com/file/d/11tTR8oreCeK7LMsXJCtcQ03v3r8yW_bw/view?usp=sharing" target="_blank" class="btn btn-primary">Download App</a>
-          <a href="https://github.com/Safvanvp/QuizzyBea.in.git" target="_blank" class="btn btn-secondary">View Source Code</a>
+          <a href="https://drive.google.com/file/d/11tTR8oreCeK7LMsXJCtcQ03v3r8yW_bw/view?usp=sharing" target="_blank"
+            class="btn btn-primary">Download App</a>
+          <a href="https://github.com/Safvanvp/QuizzyBea.in.git" target="_blank" class="btn btn-secondary">View Source
+            Code</a>
         </div>
       </div>
 
@@ -235,7 +287,7 @@
         <p class="text-gray-400 mb-4">
           Flutter app showcasing dynamic product listings with user authentication and wishlist management.
         </p>
-        
+
         <!-- App Preview / Mockups -->
         <div class="mockup-container" aria-label="Product Listing App app previews">
           <img src="assets/mockup/pl1.png" alt="Product Listing App screen 1 preview" />
@@ -243,8 +295,10 @@
         </div>
 
         <div class="mt-4 flex flex-col gap-3">
-          <a href="https://drive.google.com/file/d/1-3xb7-pqdK2LFD2YWAVBvJnkeoeiPDe_/view?usp=sharing" target="_blank" class="btn btn-primary">Download App</a>
-          <a href="https://github.com/Safvanvp/ProductListingApp" target="_blank" class="btn btn-secondary">View Source Code</a>
+          <a href="https://drive.google.com/file/d/1-3xb7-pqdK2LFD2YWAVBvJnkeoeiPDe_/view?usp=sharing" target="_blank"
+            class="btn btn-primary">Download App</a>
+          <a href="https://github.com/Safvanvp/ProductListingApp" target="_blank" class="btn btn-secondary">View Source
+            Code</a>
         </div>
       </div>
     </div>
@@ -255,15 +309,18 @@
     <h2 class="text-4xl mb-6">Connect With Me</h2>
     <div class="flex justify-center space-x-10 text-3xl">
       <!-- Behance Icon -->
-      <a href="https://www.behance.net/SAFVANS153" target="_blank" aria-label="Behance Profile" title="Behance" class="social-icon">
+      <a href="https://www.behance.net/SAFVANS153" target="_blank" aria-label="Behance Profile" title="Behance"
+        class="social-icon">
         <img src="assets/icons/behance-brands.svg" alt="Behance Icon" width="32" height="32" />
       </a>
       <!-- Instagram Icon -->
-      <a href="https://www.instagram.com/_.safvan.vp/" target="_blank" aria-label="Instagram Profile" title="Instagram" class="social-icon">
+      <a href="https://www.instagram.com/_.safvan.vp/" target="_blank" aria-label="Instagram Profile" title="Instagram"
+        class="social-icon">
         <img src="assets/icons/instagram-brands.svg" alt="Instagram Icon" width="32" height="32" />
       </a>
       <!-- WhatsApp Icon -->
-      <a href="https://wa.me/919526408939" target="_blank" aria-label="WhatsApp Profile" title="WhatsApp" class="social-icon">
+      <a href="https://wa.me/919526408939" target="_blank" aria-label="WhatsApp Profile" title="WhatsApp"
+        class="social-icon">
         <img src="assets/icons/whatsapp-brands.svg" alt="WhatsApp Icon" width="32" height="32" />
       </a>
     </div>
@@ -298,10 +355,10 @@
       'assets/my photo/IMG_3927.JPG',
       'assets/my photo/IMG_3936.JPG'
     ];
-  
+
     let current = 0;
     const bgImage = document.getElementById('bgImage');
-  
+
     setInterval(() => {
       current = (current + 1) % images.length;
       bgImage.src = images[current];
@@ -316,5 +373,31 @@
       once: true,     // animate only once
     });
   </script>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => loader.style.display = 'none', 500);
+      }
+    });
+  </script>
+
+  <!-- Back to Top Button -->
+  <button onclick="scrollToTop()" title="Back to Top"
+    class="fixed bottom-6 right-6 bg-[#d5ff5f] text-[#0f172a] font-bold px-4 py-2 rounded-full shadow-lg hover:bg-[#aeea00] transition">
+    ↑ Top
+  </button>
+
+  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+
+
 </body>
+
 </html>
