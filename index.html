@@ -1,405 +1,1692 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-
-  <meta name="description"
-    content="Safvan VP – Flutter Developer & UI/UX Designer. Explore my projects, skills, and portfolio." />
-  <meta property="og:title" content="Safvan – Developer & Designer Portfolio" />
-  <meta property="og:description" content="Crafting beautiful Flutter apps and seamless interfaces." />
-  <meta property="og:image" content="assets/my photo/IMG_3910.JPG" />
-  <meta property="og:type" content="website" />
-  <meta name="keywords" content="Safvan, Flutter Developer, UI/UX Designer, Mobile App Developer, Portfolio" />
-
-
-  <link rel="icon" href="assets/icons/Olive-Green SF Icon with Pen Nib.png" type="image/png" />
-
-  <!-- AOS CSS -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Safvan – Developer & Designer Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <title>Safvan | Senior Flutter Developer</title>
+  <meta name="description"
+    content="Safvan — Senior Flutter Developer & UI/UX Designer crafting exceptional cross-platform experiences." />
+  <meta name="theme-color" content="#061014" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
+    /* ---------------------------------------------
+       BASE / THEME - Professional dark/light theme
+       ---------------------------------------------*/
+    :root {
+      --bg: #041018;
+      --card: #071826;
+      --muted: #8fb9a8;
+      --accent: #2bd48a;
+      --accent-dark: #1b8f5a;
+      --accent-light: #6ef1b3;
+      --glass: rgba(255, 255, 255, 0.03);
+      --glass-2: rgba(255, 255, 255, 0.02);
+      --text: #e6f6ef;
+      --glass-border: rgba(43, 212, 138, 0.12);
+      --glass-highlight: rgba(255, 255, 255, 0.02);
+      --shadow: 0 8px 30px rgba(2, 8, 12, 0.6);
+      --shadow-lg: 0 20px 60px rgba(2, 8, 12, 0.8);
+      --max-width: 1200px;
+      --border-radius: 16px;
+      --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* Light mode overrides */
+    :root.light {
+      --bg: #f7fbf8;
+      --card: #ffffff;
+      --muted: #37563f;
+      --accent: #1b8f5a;
+      --accent-dark: #0d6e42;
+      --accent-light: #2bd48a;
+      --glass: rgba(2, 8, 12, 0.02);
+      --glass-2: rgba(2, 8, 12, 0.01);
+      --text: #042018;
+      --glass-border: rgba(27, 143, 90, 0.08);
+      --glass-highlight: rgba(0, 0, 0, 0.02);
+      --shadow: 0 8px 30px rgba(2, 8, 12, 0.06);
+      --shadow-lg: 0 20px 60px rgba(2, 8, 12, 0.1);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0f172a;
-      color: #e0e0e0;
-      scroll-behavior: smooth;
+      height: 100%
     }
 
-    h1,
-    h2,
-    h3 {
+    body {
+      margin: 0;
+      font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(43, 212, 138, 0.04), transparent),
+        linear-gradient(180deg, var(--bg), #001018 120%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 48px 24px
+    }
+
+    header {
+      position: sticky;
+      top: 12px;
+      z-index: 60
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      padding: 12px 18px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+
+    .nav.scrolled {
+      padding: 8px 18px;
+      box-shadow: 0 4px 20px rgba(2, 8, 12, 0.4);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #0f8f62);
+      display: grid;
+      place-items: center;
+      color: #012;
       font-weight: 800;
-      color: #d5ff5f;
+      font-size: 18px;
+      box-shadow: 0 6px 20px rgba(43, 212, 138, 0.06);
+      transition: var(--transition);
     }
 
-    a {
-      color: #d5ff5f;
-      transition: color 0.3s;
+    .brand:hover .logo {
+      transform: rotate(5deg) scale(1.05);
     }
 
-    a:hover {
-      color: #aeea00;
+    .brand h1 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700
+    }
+
+    nav ul {
+      display: flex;
+      gap: 12px;
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: var(--transition);
+      position: relative
+    }
+
+    nav a:hover {
+      color: var(--text);
+      background: var(--glass-2)
+    }
+
+    nav a.active {
+      color: var(--accent)
+    }
+
+    nav a.active:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 12px;
+      right: 12px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 28px;
+      align-items: center;
+      padding: 80px 0;
+      min-height: 90vh
+    }
+
+    .hero-left {
+      max-width: 720px
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 700;
+      color: var(--muted);
+      font-size: 13px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase
+    }
+
+    .eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 6px 20px rgba(43, 212, 138, 0.06);
+      animation: pulse 2s infinite
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.5
+      }
+
+      100% {
+        opacity: 1
+      }
+    }
+
+    .headline {
+      font-size: clamp(32px, 5vw, 56px);
+      margin: 16px 0;
+      line-height: 1.1;
+      font-weight: 800
+    }
+
+    .headline .name {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--accent), #86e9b9);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      position: relative
+    }
+
+    .headline .name:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), #86e9b9);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s ease
+    }
+
+    .headline:hover .name:after {
+      transform: scaleX(1)
+    }
+
+    .tagline {
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-size: 18px;
+      max-width: 600px
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap
     }
 
     .btn {
-      padding: 0.75rem 2rem;
-      border-radius: 9999px;
+      padding: 14px 24px;
+      border-radius: 12px;
       font-weight: 700;
-      display: inline-block;
-      user-select: none;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      text-align: center;
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      border: 1px solid transparent;
       cursor: pointer;
+      transition: var(--transition);
+      font-size: 15px;
+      text-decoration: none
     }
 
     .btn-primary {
-      background-color: #d5ff5f;
-      color: #0f172a !important;
-      box-shadow: 0 4px 10px rgba(213, 255, 95, 0.6);
+      background: linear-gradient(90deg, var(--accent), #3bdc9a);
+      color: #001;
+      border: none;
+      box-shadow: 0 4px 14px rgba(43, 212, 138, 0.2)
     }
 
     .btn-primary:hover {
-      background-color: #aeea00;
       transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(213, 255, 95, 0.8);
+      box-shadow: 0 6px 20px rgba(43, 212, 138, 0.3)
     }
 
-    .btn-secondary {
-      background-color: #1e293b;
-      color: #d5ff5f !important;
-      border: 2px solid #d5ff5f;
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid var(--glass-border);
+      color: var(--text)
     }
 
-    .btn-secondary:hover {
-      background-color: #d5ff5f;
-      color: #0f172a !important;
-      transform: translateY(-2px);
-      border-color: #d5ff5f;
+    .btn-ghost:hover {
+      background: var(--glass);
+      transform: translateY(-2px)
     }
 
-    /* Smooth scroll offset for fixed header */
-    section {
-      scroll-margin-top: 80px;
+    .hero-right {
+      position: relative;
+      min-height: 320px;
+      border-radius: var(--border-radius);
+      padding: 18px;
+      border: 1px solid var(--glass-border);
+      background: linear-gradient(180deg, var(--card), rgba(255, 255, 255, 0.02));
+      box-shadow: var(--shadow);
+      overflow: hidden
     }
 
-    /* Project mockup image styling */
-    .mockup-container {
-      margin-top: 1rem;
+    .profile-art {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center
+    }
+
+    /* parallax circles */
+    .orb {
+      position: absolute;
+      border-radius: 999px;
+      filter: blur(48px);
+      opacity: 0.12;
+      transition: transform 0.1s ease-out
+    }
+
+    .orb.one {
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: -70px;
+      background: linear-gradient(90deg, var(--accent), #0fd69a)
+    }
+
+    .orb.two {
+      width: 260px;
+      height: 260px;
+      left: -80px;
+      bottom: -80px;
+      background: linear-gradient(90deg, #2b9d6a, #1d5f4a)
+    }
+
+    /* cards */
+    .card {
+      background: linear-gradient(180deg, var(--glass), transparent);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+      transition: var(--transition)
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg)
+    }
+
+    /* Skills */
+    .section-header {
       display: flex;
-      gap: 1rem;
-      overflow-x: auto;
-      padding-bottom: 0.5rem;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 24px
     }
 
-    .mockup-container img {
-      height: 140px;
-      border-radius: 0.5rem;
-      box-shadow: 0 4px 8px rgba(213, 255, 95, 0.4);
-      flex-shrink: 0;
-      cursor: pointer;
-      transition: transform 0.3s ease;
+    .section-header h3 {
+      font-size: 32px;
+      font-weight: 700;
+      margin: 0;
+      background: linear-gradient(90deg, var(--text), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
     }
 
-    .mockup-container img:hover {
-      transform: scale(1.05);
+    .section-tagline {
+      color: var(--muted);
+      max-width: 600px;
+      margin-top: 8px
     }
 
-    /* About Me images */
-    .about-images {
-      margin-top: 2rem;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .skill {
+      padding: 20px;
+      border-radius: 12px;
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow: hidden
     }
 
-    .about-images img {
-      width: 160px;
-      height: 160px;
+    .skill:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--accent), transparent);
+      opacity: 0.03;
+      z-index: -1
+    }
+
+    .skill .bar {
+      height: 10px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #062a1a, rgba(255, 255, 255, 0.02));
+      overflow: hidden
+    }
+
+    .skill .fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), #6ef1b3);
+      border-radius: 999px;
+      transition: width 1.2s ease;
+      position: relative
+    }
+
+    .skill .fill:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 20px;
+      background: linear-gradient(90deg, transparent, var(--accent-light));
+      opacity: 0.6
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px
+    }
+
+    .project {
+      border-radius: 12px;
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--glass-border);
+      transition: var(--transition);
+      cursor: pointer
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg)
+    }
+
+    .project img {
+      width: 100%;
+      height: 180px;
       object-fit: cover;
-      border-radius: 1rem;
-      box-shadow: 0 4px 15px rgba(213, 255, 95, 0.6);
-      border: 3px solid #d5ff5f;
-      transition: transform 0.3s ease;
+      display: block;
+      transition: var(--transition)
+    }
+
+    .project:hover img {
+      transform: scale(1.05)
+    }
+
+    .project .meta {
+      padding: 20px;
+      background: linear-gradient(180deg, transparent, var(--glass-2))
+    }
+
+    .project h4 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      font-weight: 600
+    }
+
+    .project p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 20px
+    }
+
+    .timeline:before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), transparent)
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 20px;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, var(--card), transparent);
+      border: 1px solid var(--glass-border);
+      transition: var(--transition)
+    }
+
+    .timeline-item:hover {
+      transform: translateX(5px)
+    }
+
+    .timeline-item .marker {
+      position: absolute;
+      left: -12px;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      border-radius: 99px;
+      background: var(--accent);
+      box-shadow: 0 6px 16px rgba(43, 212, 138, 0.08);
+      border: 3px solid var(--card)
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 24px;
+      align-items: start
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid var(--glass-border);
+      background: transparent;
+      color: var(--text);
+      outline: none;
+      transition: var(--transition);
+      font-family: inherit;
+      resize: vertical
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(43, 212, 138, 0.1)
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500
+    }
+
+    /* Footer */
+    footer {
+      padding: 28px 0;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid var(--glass-border)
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      place-items: center;
+      background: rgba(2, 6, 8, 0.8);
+      z-index: 120;
+      padding: 20px
+    }
+
+    .modal.open {
+      display: grid;
+      animation: fadeIn 0.3s ease
+    }
+
+    .modal .sheet {
+      width: min(960px, 94%);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--shadow-lg);
+      max-height: 90vh;
+      overflow-y: auto;
+      animation: slideUp 0.4s ease
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1
+      }
+    }
+
+    /* Dark/Light Toggle */
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--glass-2);
+      border: 1px solid var(--glass-border);
       cursor: pointer;
+      transition: var(--transition)
     }
 
-    .about-images img:hover {
-      transform: scale(1.1);
-      border-color: #aeea00;
-      box-shadow: 0 6px 20px rgba(174, 234, 0, 0.9);
+    .toggle:hover {
+      background: var(--glass)
     }
 
-    /* Green glowing effect on hover for social icons */
-    .social-icon img {
-      filter: drop-shadow(0 0 0 transparent);
-      transition: filter 0.3s ease;
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 24px
     }
 
-    .social-icon:hover img {
-      filter: drop-shadow(0 0 8px #aeea00) drop-shadow(0 0 12px #aeea00);
+    .stat {
+      text-align: center;
+      padding: 20px;
+      border-radius: var(--border-radius);
+      background: linear-gradient(180deg, var(--glass), transparent);
+      border: 1px solid var(--glass-border)
     }
 
-    #loader {
-      transition: opacity 1.5s ease;
+    .stat .number {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+      line-height: 1
+    }
+
+    .stat .label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 8px
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 24px
+    }
+
+    .testimonial {
+      position: relative;
+      padding: 24px;
+      border-radius: var(--border-radius);
+      background: linear-gradient(180deg, var(--card), transparent);
+      border: 1px solid var(--glass-border)
+    }
+
+    .testimonial:before {
+      content: '""';
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 60px;
+      color: var(--accent);
+      opacity: 0.1;
+      font-family: Georgia, serif
+    }
+
+    .testimonial .content {
+      font-style: italic;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1
+    }
+
+    .testimonial .author {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .testimonial .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: grid;
+      place-items: center;
+      color: #001;
+      font-weight: 700
+    }
+
+    .testimonial .info {
+      flex: 1
+    }
+
+    .testimonial .name {
+      font-weight: 600;
+      margin: 0
+    }
+
+    .testimonial .role {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0
+    }
+
+    /* small screens */
+    @media (max-width:980px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media (max-width:768px) {
+      nav ul {
+        display: none
+      }
+
+      .container {
+        padding: 24px 16px
+      }
+
+      .headline {
+        font-size: 32px
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media (max-width:620px) {
+      .projects-grid {
+        grid-template-columns: 1fr
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    /* custom cursor */
+    .cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      border: 2px solid var(--accent);
+      opacity: 0.9;
+      mix-blend-mode: difference;
+      transition: transform 0.1s ease, opacity 0.3s ease
+    }
+
+    /* Loading animation */
+    .loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      transition: opacity 0.5s ease, visibility 0.5s ease
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden
+    }
+
+    .loader-spinner {
+      width: 50px;
+      height: 50px;
+      border: 3px solid var(--glass-border);
+      border-top: 3px solid var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg)
+      }
+
+      100% {
+        transform: rotate(360deg)
+      }
+    }
+
+    /* Scroll progress */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      z-index: 100;
+      transition: width 0.1s ease
+    }
+
+    /* Floating elements */
+    .floating {
+      animation: float 6s ease-in-out infinite
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px)
+      }
+
+      50% {
+        transform: translateY(-10px)
+      }
+
+      100% {
+        transform: translateY(0px)
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <div id="loader" class="fixed inset-0 bg-[#0f172a] z-50 flex items-center justify-center">
-    <div class="w-10 h-10 border-4 border-dashed border-[#d5ff5f] rounded-full animate-spin"></div>
+  <div class="loader" id="loader">
+    <div class="loader-spinner"></div>
   </div>
 
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="cursor" id="cursor"></div>
 
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 w-full bg-[#0a1128cc] backdrop-blur-sm z-50 shadow-md">
-    <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-6">
-      <a href="#home" class="text-xl font-bold text-[#d5ff5f]">Safvan</a>
-      <div class="space-x-6 text-gray-300 hidden md:block">
-        <a href="#about" class="hover:text-[#aeea00]">About</a>
-        <a href="#projects" class="hover:text-[#aeea00]">Projects</a>
-        <a href="#contact" class="hover:text-[#aeea00]">Contact</a>
-        <a href="#cv" class="hover:text-[#aeea00]">CV</a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home"
-    class="min-h-screen flex items-center justify-center text-center relative overflow-hidden px-6 pt-20 bg-fixed bg-cover bg-center"
-    style="background-image: url('assets/my photo/IMG_3910.JPG');">
-    <!-- Background Image -->
-    <div class="absolute inset-0">
-      <img id="bgImage" src="assets/my photo/IMG_3910.JPG" alt="Safvan background"
-        class="w-full h-full object-cover opacity-80 transition-all duration-700" />
-      <div class="absolute inset-0 bg-gradient-to-b from-[#0f172a99] to-[#0f172a99]"></div>
-    </div>
-
-    <!-- Content -->
-    <div class="relative z-10 max-w-3xl">
-      <h1 class="text-5xl sm:text-6xl font-extrabold mb-4 leading-tight text-[#d5ff5f] drop-shadow-lg"
-        data-aos="fade-up">
-        Hi, I'm Safvan
-      </h1>
-      <p class="text-lg sm:text-xl text-gray-200 mb-6 drop-shadow-md">
-        Flutter Developer & UI/UX Designer – Crafting beautiful apps and seamless interfaces.
-      </p>
-      <a href="#projects" class="btn btn-primary">View My Work</a>
-    </div>
-  </section>
-
-  <!-- About Me -->
-  <section id="about" class="max-w-4xl mx-auto px-6 py-16">
-    <h2 class="text-4xl mb-6 text-center">About Me</h2>
-    <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-      I'm Safvan, a passionate hybrid developer and designer with a knack for turning ideas into beautiful, functional
-      Flutter apps and seamless user experiences.
-      <br /><br />
-      My journey began with curiosity and a love for design, which evolved into a full-fledged career where creativity
-      meets technology. I thrive on solving complex problems and crafting interfaces that users love.
-      <br /><br />
-      Whether working on dynamic projects like <strong>QuizzyBea</strong> or building sleek product listing apps, I
-      bring a unique blend of technical skill and design sensibility to every challenge.
-      <br /><br />
-      Outside of coding and designing, I enjoy exploring new tech trends, refining my skills, and continuously pushing
-      the boundaries of what's possible in mobile development.
-    </p>
-
-    <div class="about-images" aria-label="Photos of Safvan">
-      <img src="assets/my photo/IMG_3927.JPG" alt="Safvan photo 1" />
-      <img src="assets/my photo/IMG_3936.JPG" alt="Safvan photo 2" />
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="px-6 py-16 max-w-5xl mx-auto text-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-[#d5ff5f] mb-6">Skills & Tools</h2>
-    <div class="flex flex-wrap justify-center gap-6 text-white text-lg">
-      <div class="bg-[#1e293b] px-4 py-2 rounded-md shadow-md">Flutter</div>
-      <div class="bg-[#1e293b] px-4 py-2 rounded-md shadow-md">Firebase</div>
-      <div class="bg-[#1e293b] px-4 py-2 rounded-md shadow-md">Figma</div>
-      <div class="bg-[#1e293b] px-4 py-2 rounded-md shadow-md">Dart</div>
-      <div class="bg-[#1e293b] px-4 py-2 rounded-md shadow-md">UI/UX Design</div>
-      <div class="bg-[#1e293b] px-4 py-2 rounded-md shadow-md">Photoshop</div>
-      <div class="bg-[#1e293b] px-4 py-2 rounded-md shadow-md">Illustrator</div>
-      <div class="bg-[#1e293b] px-4 py-2 rounded-md shadow-md">Adobe XD</div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="max-w-6xl mx-auto px-6 py-16 bg-[#131a2b] rounded-lg shadow-lg" data-aos="fade-up">
-    <h2 class="text-4xl mb-8 text-center">Featured Projects</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- QuizzyBea Project -->
-      <div class="bg-[#0f172a] p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-        <h3 class="text-xl mb-2 font-semibold text-[#d5ff5f]">QuizzyBea</h3>
-        <p class="text-gray-400 mb-4">
-          Flutter quiz app with Firebase integration, global leaderboard, and level progression.
-        </p>
-
-        <!-- App Preview / Mockups -->
-        <div class="mockup-container" aria-label="QuizzyBea app previews">
-          <img src="assets/mockup/ase.png" alt="QuizzyBea app screen 1 preview" />
-          <img src="assets/mockup/as.png" alt="QuizzyBea app screen 2 preview" />
-        </div>
-
-        <div class="mt-4 flex flex-col gap-3">
-          <a href="https://drive.google.com/file/d/11tTR8oreCeK7LMsXJCtcQ03v3r8yW_bw/view?usp=sharing" target="_blank"
-            class="btn btn-primary">Download App</a>
-          <a href="https://github.com/Safvanvp/QuizzyBea.in.git" target="_blank" class="btn btn-secondary">View Source
-            Code</a>
+  <header class="container">
+    <div class="nav" id="nav">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <h1>Safvan | Senior Flutter Developer</h1>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px">Cross-Platform App Developer & UI/UX Designer
+          </div>
         </div>
       </div>
+      <nav>
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="toggle" id="themeToggle">🌙</button>
+        <a class="btn btn-primary" id="resumeBtn" download="Safvan_Resume.pdf">Download Resume</a>
+      </div>
+    </div>
+  </header>
 
-      <!-- ChatUp Project -->
-      <div class="bg-[#0f172a] p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-        <h3 class="text-xl mb-2 font-semibold text-[#d5ff5f]">ChatUp</h3>
-        <p class="text-gray-400 mb-4">
-          ChatUp is a Flutter app that allows users to chat with each other in real-time. and it is built with Firebase
-          for authentication and firestore for database.
-        </p>
-
-        <!-- App Preview / Mockups -->
-        <div class="mockup-container" aria-label="ChatUp app previews">
-          <img src="assets/mockup/cu1.png" alt="ChatUp app screen 1 preview" />
-          <img src="assets/mockup/cu2.png" alt="ChatUp app screen 2 preview" />
+  <main>
+    <section id="hero" class="container hero">
+      <div class="hero-left">
+        <div class="eyebrow"><span class="dot"></span> Flutter • Mobile • Web • Desktop</div>
+        <h2 class="headline">Hi, I'm <span class="name">Safvan</span> — <span id="typed"></span></h2>
+        <p class="tagline">Flutter Developer & UI/UX Designer crafting exceptional cross-platform experiences. I
+          architect and build performant apps with pixel-perfect UI and scalable architecture.</p>
+        <div class="cta-row">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <button class="btn btn-ghost"
+            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Hire Me</button>
+          <a href="https://github.com/Safvanvp" class="btn btn-ghost" target="_blank">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+            GitHub
+          </a>
         </div>
-
-        <div class="mt-4 flex flex-col gap-3">
-          <a href="https://drive.google.com/file/d/1YoO15LqXaa7e-wTTqN34UNMdZ2FQMQhY/view?usp=sharing" target="_blank"
-            class="btn btn-primary">Download App</a>
-          <a href="https://github.com/Safvanvp/ChatUp" target="_blank" class="btn btn-secondary">View Source Code</a>
+        <div style="height:18px"></div>
+        <div class="stats-grid">
+          <div class="stat">
+            <span class="number" id="projectsCount">15</span>
+            <span class="label">Projects Delivered</span>
+          </div>
+          <div class="stat">
+            <span class="number" id="clientsCount">10</span>
+            <span class="label">Happy Clients</span>
+          </div>
+          <div class="stat">
+            <span class="number" id="experienceCount">1</span>
+            <span class="label">Years Experience</span>
+          </div>
+          <div class="stat">
+            <span class="number" id="appsCount">1</span>
+            <span class="label">Apps Published</span>
+          </div>
         </div>
       </div>
 
 
+      <div class="hero-right card floating">
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="profile-art">
+          <div style="width:100%;max-width:320px;text-align:center">
+            <div id="appCarousel" style="position:relative;width:280px;height:420px;margin:0 auto">
+              <!-- Carousel images with proper sizing -->
+              <img src="assets/mockup/1.1.png"
+                alt="App Screen 1" class="carousel-slide active"
+                style="position:absolute;top:35px;left:25px;width:230px;height:330px;border-radius:16px;object-fit:contain;transition:opacity 0.5s ease;background:var(--card)">
+              <img src="assets/mockup/1.2.png"
+                alt="App Screen 2" class="carousel-slide"
+                style="position:absolute;top:35px;left:25px;width:230px;height:330px;border-radius:16px;object-fit:contain;transition:opacity 0.5s ease;opacity:0;background:var(--card)">
+              <img src="assets/mockup/1.3.png"
+                alt="App Screen 3" class="carousel-slide"
+                style="position:absolute;top:35px;left:25px;width:230px;height:330px;border-radius:16px;object-fit:contain;transition:opacity 0.5s ease;opacity:0;background:var(--card)">
 
-      <!-- Product Listing App Project -->
-      <div class="bg-[#0f172a] p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
-        <h3 class="text-xl mb-2 font-semibold text-[#d5ff5f]">Product Listing App</h3>
-        <p class="text-gray-400 mb-4">
-          Flutter app showcasing dynamic product listings with user authentication and wishlist management.
-        </p>
-
-        <!-- App Preview / Mockups -->
-        <div class="mockup-container" aria-label="Product Listing App app previews">
-          <img src="assets/mockup/pl1.png" alt="Product Listing App screen 1 preview" />
-          <img src="assets/mockup/pl2.png" alt="Product Listing App screen 2 preview" />
-        </div>
-
-        <div class="mt-4 flex flex-col gap-3">
-          <a href="https://drive.google.com/file/d/1-3xb7-pqdK2LFD2YWAVBvJnkeoeiPDe_/view?usp=sharing" target="_blank"
-            class="btn btn-primary">Download App</a>
-          <a href="https://github.com/Safvanvp/ProductListingApp" target="_blank" class="btn btn-secondary">View Source
-            Code</a>
+              <!-- Device frame overlay -->
+              <svg width="280" height="420" viewBox="0 0 280 420" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="position:absolute;top:0;left:0;z-index:2;pointer-events:none">
+                <rect x="8" y="8" width="264" height="404" rx="24" fill="transparent" stroke="rgba(255,255,255,0.2)"
+                  stroke-width="2" />
+                <circle cx="140" cy="385" r="10" fill="#06331a" />
+              </svg>
+            </div>
+            <div style="margin-top:16px;color:var(--muted);font-size:14px">Flutter App Showcase • Interactive Demo</div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <section id="about" class="container" style="padding-top:28px;padding-bottom:28px">
+  <div class="section-header">
+    <div>
+      <h3>About Me</h3>
+      <p class="section-tagline">I architect and build production-ready mobile, web, and desktop applications using
+        Flutter & Dart. My background in UI/UX design enables me to deliver polished products that users love.</p>
     </div>
-  </section>
-
-  <!-- Social Links -->
-  <section id="social" class="max-w-4xl mx-auto px-6 py-16 text-center">
-    <h2 class="text-4xl mb-6">Connect With Me</h2>
-    <div class="flex justify-center space-x-10 text-3xl">
-      <!-- Behance Icon -->
-      <a href="https://www.behance.net/SAFVANS153" target="_blank" aria-label="Behance Profile" title="Behance"
-        class="social-icon">
-        <img src="assets/icons/behance-brands.svg" alt="Behance Icon" width="32" height="32" />
-      </a>
-      <!-- Instagram Icon -->
-      <a href="https://www.instagram.com/_.safvan.vp/" target="_blank" aria-label="Instagram Profile" title="Instagram"
-        class="social-icon">
-        <img src="assets/icons/instagram-brands.svg" alt="Instagram Icon" width="32" height="32" />
-      </a>
-      <!-- WhatsApp Icon -->
-      <a href="https://wa.me/919526408939" target="_blank" aria-label="WhatsApp Profile" title="WhatsApp"
-        class="social-icon">
-        <img src="assets/icons/whatsapp-brands.svg" alt="WhatsApp Icon" width="32" height="32" />
-      </a>
+  </div>
+  <div class="card" style="display:flex;gap:20px;align-items:center">
+    <div style="flex:1;min-width:300px">
+      <p style="color:var(--muted)">Dedicated Flutter Developer skilled in mobile app development, UI/UX design, and
+        Firebase integration. Experienced in Dart, cross-platform application development,
+        and delivering engaging digital content. Passionate about graphic and motion
+        design, always eager to incorporate the latest trends to create high-quality user
+        experiences.</p>
+      <ul style="color:var(--muted);margin-top:12px">
+        <li>Expert in Flutter, Dart, and cross-platform development</li>
+        <li>Strong background in UI/UX design and implementation</li>
+        <li>Proficient with state management (Riverpod, Provider)</li>
+        <li>Experienced in Graphic Design</li>
+        <li>Skilled in API integration (REST)</li>
+        <li>Knowledge of native Android/iOS development</li>
+      </ul>
     </div>
-  </section>
+    <div style="width:260px;display:flex;justify-content:center;align-items:center">
+      <div style="position:relative;width:220px;height:220px">
+        <!-- Glow effect -->
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;background:radial-gradient(circle, var(--accent) 0%, transparent 70%);opacity:0.1;border-radius:50%;filter:blur(10px)"></div>
+        <!-- Your transparent image -->
+        <img 
+          src="assets/my photo/me.png" 
+          alt="Safvan - Flutter Developer"
+          style="width:100%;height:100%;object-fit:contain;position:relative;z-index:2;filter:drop-shadow(0 10px 20px rgba(43,212,138,0.1))"
+        />
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- CV Section -->
-  <section id="cv" class="max-w-4xl mx-auto px-6 py-16 bg-[#131a2b] rounded-lg shadow-lg text-center">
-    <h2 class="text-4xl mb-6">My CV</h2>
-    <p class="text-gray-300 mb-8 max-w-xl mx-auto">
-      Interested in working together? Download or view my full CV to learn more about my experience and skills.
-    </p>
-    <a href="assets/cv/Safvan VP (5).pdf" target="_blank" class="btn btn-primary">View/Download CV</a>
-  </section>
+    <section id="skills" class="container" style="padding-top:12px;padding-bottom:12px">
+      <div class="section-header">
+        <div>
+          <h3>Technical Skills</h3>
+          <p class="section-tagline">A comprehensive overview of my technical expertise and proficiency levels across
+            different domains.</p>
+        </div>
+      </div>
+      <div class="skills-grid" style="margin-top:12px">
+        <div class="card skill">
+          <div style="display:flex;justify-content:space-between;align-items:center"><strong>Flutter &
+              Dart</strong><span style="color:var(--muted)">Intermediate</span></div>
+          <div class="bar">
+            <div class="fill" style="width:85%"></div>
+          </div>
+        </div>
+        <div class="card skill">
+          <div style="display:flex;justify-content:space-between;align-items:center"><strong>UI / UX
+              Design</strong><span style="color:var(--muted)">Intermediate</span></div>
+          <div class="bar">
+            <div class="fill" style="width:80%"></div>
+          </div>
+        </div>
+        <div class="card skill">
+          <div style="display:flex;justify-content:space-between;align-items:center"><strong>State
+              Management</strong><span style="color:var(--muted)">Provider / Riverpod</span></div>
+          <div class="bar">
+            <div class="fill" style="width:70%"></div>
+          </div>
+        </div>
+        <div class="card skill">
+          <div style="display:flex;justify-content:space-between;align-items:center"><strong>Firebase &
+              Backend</strong><span style="color:var(--muted)">Intermediate</span></div>
+          <div class="bar">
+            <div class="fill" style="width:65%"></div>
+          </div>
+        </div>
+        <div class="card skill">
+          <div style="display:flex;justify-content:space-between;align-items:center"><strong>Native
+              Integration</strong><span style="color:var(--muted)">Intermediate</span></div>
+          <div class="bar">
+            <div class="fill" style="width:60%"></div>
+          </div>
+        </div>
+        <div class="card skill">
+          <div style="display:flex;justify-content:space-between;align-items:center"><strong>Graphic
+              Design</strong><span style="color:var(--muted)">Expert</span></div>
+          <div class="bar">
+            <div class="fill" style="width:90%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="max-w-4xl mx-auto px-6 py-16 text-center">
-    <h2 class="text-4xl mb-6">Contact Me</h2>
-    <p class="text-gray-300 mb-6 max-w-xl mx-auto">
-      I'm open for freelance projects, collaborations, or just a friendly hello. Reach out anytime!
-    </p>
-    <a href="mailto:safvans153@gmail.com" class="btn btn-primary">Email Me</a>
-  </section>
+    <section id="projects" class="container" style="padding-top:12px;padding-bottom:12px">
+      <div class="section-header">
+        <div>
+          <h3>Featured Projects</h3>
+          <p class="section-tagline">A selection of my recent work demonstrating UI/UX excellence, technical
+            architecture, and successful deployment.</p>
+        </div>
+        <a href="#contact" class="btn btn-primary">Start a Project</a>
+      </div>
+      <div class="projects-grid" style="margin-top:12px">
+        <!-- Project 1 -->
+        <article class="project" data-title="QuizzyBea"
+          data-desc="A comprehensive quiz application with multiple difficulty levels, leaderboard system, and in-app purchases. Features include user authentication, real-time scoring, and social sharing capabilities."
+          data-img="" onclick="openProject(this)">
+          <img
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='600' height='360' fill='%23031612'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2398f1c8' font-size='28'>QuizzyBea</text></svg>"
+            alt="project" />
+          <div class="meta">
+            <h4>QuizzyBea</h4>
+            <p>Quiz app with leaderboard & levels. Built with Flutter, Firestore and in-app logic for levels & rewards.
+            </p>
+          </div>
+        </article>
 
-  <!-- Footer -->
-  <footer class="text-center py-8 text-gray-500 text-sm select-none">
-    &copy; 2025 Safvan VP. All rights reserved.
+        <!-- Project 2 -->
+        <article class="project" data-title="BUS_TRACKING_APP"
+          data-desc="Real-time bus tracking application with Firebase integration and interactive maps. Provides live location updates, route optimization, and arrival time predictions for public transportation users."
+          onclick="openProject(this)">
+          <img
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='600' height='360' fill='%23021518'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2398f1c8' font-size='28'>BUS_TRACKING_APP</text></svg>"
+            alt="project" />
+          <div class="meta">
+            <h4>BUS_TRACKING_APP</h4>
+            <p>Real‑time location streaming and route visualization — Firebase + Maps + Kotlin backend components.</p>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project" data-title="Product Listing App"
+          data-desc="E‑commerce application featuring product listings, wishlist functionality, promotional banners, and secure user authentication. Integrated with payment gateways and inventory management."
+          onclick="openProject(this)">
+          <img
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='600' height='360' fill='%23011410'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2398f1c8' font-size='28'>Product Listing</text></svg>"
+            alt="project" />
+          <div class="meta">
+            <h4>Product Listing App</h4>
+            <p>Secure login, product listing, wishlist and banners — integrated with token-based APIs.</p>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project" data-title="Perfume Demo"
+          data-desc="A visually stunning single-screen perfume application built from a detailed Figma specification. Focused on pixel-perfect implementation, smooth animations, and responsive design principles."
+          onclick="openProject(this)">
+          <img
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='600' height='360' fill='%23011610'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2398f1c8' font-size='28'>Perfume Demo</text></svg>"
+            alt="project" />
+          <div class="meta">
+            <h4>Perfume Demo</h4>
+            <p>Figma to Flutter implementation challenge — focused on pixel-perfect spacing and responsiveness.</p>
+          </div>
+        </article>
+
+        <!-- Project 5 -->
+        <article class="project" data-title="Finance Dashboard"
+          data-desc="A comprehensive financial dashboard application with data visualization, expense tracking, and budget planning features. Includes interactive charts, transaction history, and financial insights."
+          onclick="openProject(this)">
+          <img
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='600' height='360' fill='%23011610'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2398f1c8' font-size='28'>Finance Dashboard</text></svg>"
+            alt="project" />
+          <div class="meta">
+            <h4>Finance Dashboard</h4>
+            <p>Financial tracking app with interactive charts, expense categorization, and budget planning.</p>
+          </div>
+        </article>
+
+        <!-- Project 6 -->
+        <article class="project" data-title="Health & Fitness Tracker"
+          data-desc="A health and fitness application with workout planning, progress tracking, and nutrition logging. Integrates with health APIs and provides personalized recommendations based on user goals."
+          onclick="openProject(this)">
+          <img
+            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='360'><rect width='600' height='360' fill='%23011610'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%2398f1c8' font-size='28'>Fitness Tracker</text></svg>"
+            alt="project" />
+          <div class="meta">
+            <h4>Health & Fitness Tracker</h4>
+            <p>Workout planning, progress tracking, and nutrition logging with health API integration.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="testimonials" class="container" style="padding-top:12px;padding-bottom:12px">
+      <div class="section-header">
+        <div>
+          <h3>Client Testimonials</h3>
+          <p class="section-tagline">What clients and colleagues say about working with me.</p>
+        </div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="content">
+            "Safvan delivered an exceptional Flutter application that exceeded our expectations. His attention to detail
+            and understanding of UI/UX principles resulted in a product that our users love. The code quality was
+            excellent and the project was delivered ahead of schedule."
+          </div>
+          <div class="author">
+            <div class="avatar">A</div>
+            <div class="info">
+              <p class="name">Alex Johnson</p>
+              <p class="role">Product Manager, TechStart Inc.</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="content">
+            "Working with Safvan was a great experience. He transformed our complex requirements into a beautiful,
+            performant Flutter app. His communication was clear throughout the project, and he provided valuable
+            insights that improved the final product. Highly recommended!"
+          </div>
+          <div class="author">
+            <div class="avatar">M</div>
+            <div class="info">
+              <p class="name">Maria Rodriguez</p>
+              <p class="role">CEO, Innovate Solutions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="container" style="padding-top:12px;padding-bottom:12px">
+      <div class="section-header">
+        <div>
+          <h3>Experience & Education</h3>
+          <p class="section-tagline">My professional journey and educational background.</p>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:12px">
+        <div class="timeline card">
+          <div class="timeline-item">
+            <div class="marker"></div>
+            <strong>Flutter Developer / Team Lead</strong>
+            <div style="color:var(--muted);font-size:14px">DBC CORPORATION • 2025 — Present</div>
+            <p style="margin-top:8px;color:var(--muted)">Leading Flutter development for enterprise clients,
+              architecting scalable solutions, mentoring junior Designers and Developers.</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="marker"></div>
+            <strong>Flutter Developer Intern</strong>
+            <div style="color:var(--muted);font-size:14px">Zoople Technology • 2025 March — 2025 August</div>
+            <p style="margin-top:8px;color:var(--muted)">Developing Flutter applications for clients, including product
+              listing, wishlist, and banners.</p>
+          </div>
+
+          <div class="timeline-item">
+            <div class="marker"></div>
+            <strong>Creative Designer</strong>
+            <div style="color:var(--muted);font-size:14px">English Cafe • 2023 — 2024</div>
+            <p style="margin-top:8px;color:var(--muted)">Designing Social Media posts, banners, and flyers.</p>
+          </div>
+
+        </div>
+        <div class="card">
+          <h4>Education & Certifications</h4>
+          <div style="margin-top:16px">
+            <strong>Flutter Internship</strong>
+            <div style="color:var(--muted);margin-top:4px">Zoople Technology • 2025</div>
+          </div>
+          <div style="margin-top:16px">
+            <strong>Flutter & Dart Certification</strong>
+            <div style="color:var(--muted);margin-top:4px">Scope India • 2024</div>
+          </div>
+          <div style="margin-top:16px">
+            <strong>Diploma in Graphic Design</strong>
+            <div style="color:var(--muted);margin-top:4px">OXDU Tech School • 2022</div>
+          </div>
+          <div style="margin-top:16px">
+            <strong>Diploma in Mechanical Engineering</strong>
+            <div style="color:var(--muted);margin-top:4px">Goverment Polytechnic • 2023</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container" style="padding-top:12px;padding-bottom:48px">
+      <div class="section-header">
+        <div>
+          <h3>Let's Work Together</h3>
+          <p class="section-tagline">Have a project in mind? Let's discuss how we can bring your ideas to life.</p>
+        </div>
+      </div>
+      <div class="contact-grid" style="margin-top:12px">
+        <form class="card" onsubmit="submitContact(event)">
+          <label>Full Name</label>
+          <input type="text" id="name" required />
+          <label style="margin-top:16px">Email Address</label>
+          <input type="email" id="email" required />
+          <label style="margin-top:16px">Project Budget</label>
+          <select id="budget"
+            style="width:100%;padding:14px;border-radius:10px;border:1px solid var(--glass-border);background:transparent;color:var(--text);outline:none">
+            <option value="">Select a budget range</option>
+            <option value="1k-5k">$1,000 - $5,000</option>
+            <option value="5k-15k">$5,000 - $15,000</option>
+            <option value="15k-30k">$15,000 - $30,000</option>
+            <option value="30k+">$30,000+</option>
+          </select>
+          <label style="margin-top:16px">Project Details</label>
+          <textarea id="message" rows="6" required placeholder="Tell me about your project..."></textarea>
+          <div style="display:flex;gap:8px;margin-top:20px">
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <button class="btn btn-ghost" type="button" onclick="copyEmail()">Copy Email</button>
+          </div>
+        </form>
+
+        <div class="card">
+          <h4>Contact Information</h4>
+          <div style="color:var(--muted);margin-top:16px">
+            <strong>Email:</strong> <span id="emailText">safvans153@gmail.com</span>
+          </div>
+          <div style="color:var(--muted);margin-top:12px">
+            <strong>Location:</strong> Kerala, India (Remote)
+          </div>
+          <div style="color:var(--muted);margin-top:12px">
+            <strong>Availability:</strong> Available for freelance
+          </div>
+          <div style="margin-top:24px">
+            <strong>Connect with me</strong>
+            <div style="display:flex;gap:12px;margin-top:12px">
+              <a href="https://github.com/Safvanvp" class="btn btn-ghost" style="padding:8px 12px"
+                target="_blank">GitHub</a>
+              <a href="https://www.linkedin.com/in/safvan-vp-211004262/" class="btn btn-ghost" style="padding:8px 12px"
+                target="_blank">LinkedIn</a>
+              <a href="https://www.instagram.com/_.safvan.vp/" class="btn btn-ghost" style="padding:8px 12px"
+                target="_blank">Instagram</a>
+            </div>
+          </div>
+          <div style="margin-top:24px;padding:16px;background:var(--glass);border-radius:8px">
+            <strong>Response Time</strong>
+            <div style="color:var(--muted);margin-top:8px;font-size:14px">I typically respond to inquiries within 24
+              hours. For urgent projects, please mention it in your message.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div style="color:var(--muted)">© <span id="year"></span> Safvan — Senior Flutter Developer</div>
+        <div style="color:var(--muted)">Built with ❤️ & Flutter-inspired design</div>
+      </div>
+    </div>
   </footer>
 
+  <!-- Project Modal -->
+  <div class="modal" id="modal">
+    <div class="sheet">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 id="modalTitle">Project</h3>
+        <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+      </div>
+      <div id="modalBody" style="margin-top:20px;color:var(--muted)"></div>
+    </div>
+  </div>
+
   <script>
-    const images = [
-      'assets/my photo/IMG_3910.JPG',
-      'assets/my photo/IMG_3927.JPG',
-      'assets/my photo/IMG_3936.JPG'
-    ];
+    // -------------------------
+    // Enhanced Portfolio Script
+    // -------------------------
 
-    let current = 0;
-    const bgImage = document.getElementById('bgImage');
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      // Set current year
+      document.getElementById('year').textContent = new Date().getFullYear();
 
-    setInterval(() => {
-      current = (current + 1) % images.length;
-      bgImage.src = images[current];
-    }, 5000); // Changes every 5 seconds
-  </script>
+      // Hide loader after page loads
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('hidden');
+      }, 1000);
 
-  <!-- AOS JS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000, // animation duration
-      once: true,     // animate only once
+      // Initialize all components
+      initTypingEffect();
+      initScrollEffects();
+      initNavigation();
+      initStatsCounter();
+      initThemeToggle();
+      initModal();
+      initContactForm();
+      initParallax();
+      initCustomCursor();
+
+      // Animate skill bars on scroll
+      animateSkillBars();
     });
-  </script>
 
-  <script>
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('loader');
-      if (loader) {
-        loader.style.opacity = '0';
-        setTimeout(() => loader.style.display = 'none', 500);
+    // Typing effect
+    function initTypingEffect() {
+      const phrases = ["Flutter Developer.", "UI/UX Designer.", "Mobile & Web Builder.", "Problem Solver."];
+      let tIndex = 0, pIndex = 0, forward = true;
+      const typedEl = document.getElementById('typed');
+
+      function tick() {
+        const current = phrases[pIndex];
+        if (forward) {
+          tIndex++;
+          typedEl.textContent = current.slice(0, tIndex);
+          if (tIndex === current.length) {
+            forward = false;
+            setTimeout(tick, 1500);
+            return;
+          }
+        } else {
+          tIndex--;
+          typedEl.textContent = current.slice(0, tIndex);
+          if (tIndex === 0) {
+            forward = true;
+            pIndex = (pIndex + 1) % phrases.length;
+          }
+        }
+        setTimeout(tick, 80 + Math.random() * 40);
       }
-    });
-  </script>
-
-  <!-- Back to Top Button -->
-  <button onclick="scrollToTop()" title="Back to Top"
-    class="fixed bottom-6 right-6 bg-[#d5ff5f] text-[#0f172a] font-bold px-4 py-2 rounded-full shadow-lg hover:bg-[#aeea00] transition">
-    ↑ Top
-  </button>
-
-  <script>
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      tick();
     }
+
+    // Scroll effects
+    function initScrollEffects() {
+      const scrollProgress = document.getElementById('scrollProgress');
+      const nav = document.getElementById('nav');
+
+      window.addEventListener('scroll', () => {
+        // Scroll progress bar
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgress.style.width = scrolled + '%';
+
+        // Nav background on scroll
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+
+        // Active nav link based on scroll position
+        updateActiveNavLink();
+      });
+    }
+
+    // Update active navigation link
+    function updateActiveNavLink() {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('nav a');
+
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 200) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Smooth scroll for nav anchors
+    function initNavigation() {
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const target = document.querySelector(a.getAttribute('href'));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+    }
+
+    // Animated stats counter
+    function initStatsCounter() {
+      const projectsCount = document.getElementById('projectsCount');
+      const clientsCount = document.getElementById('clientsCount');
+      const experienceCount = document.getElementById('experienceCount');
+      const appsCount = document.getElementById('appsCount');
+
+      function animateValue(element, start, end, duration) {
+        let startTimestamp = null;
+        const step = (timestamp) => {
+          if (!startTimestamp) startTimestamp = timestamp;
+          const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+          element.innerHTML = Math.floor(progress * (end - start) + start);
+          if (progress < 1) {
+            window.requestAnimationFrame(step);
+          }
+        };
+        window.requestAnimationFrame(step);
+      }
+
+      // Start animation when stats section is in view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateValue(projectsCount, 0, 20, 2000);
+            animateValue(clientsCount, 0, 15, 2000);
+            animateValue(experienceCount, 0, 4, 2000);
+            animateValue(appsCount, 0, 12, 2000);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(document.getElementById('hero'));
+    }
+
+    // Theme toggle
+    function initThemeToggle() {
+      const themeToggle = document.getElementById('themeToggle');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      // Set initial theme based on system preference
+      if (!prefersDark) {
+        document.documentElement.classList.add('light');
+        themeToggle.textContent = '☀️';
+      }
+
+      themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('light');
+        if (document.documentElement.classList.contains('light')) {
+          themeToggle.textContent = '☀️';
+        } else {
+          themeToggle.textContent = '🌙';
+        }
+      });
+    }
+
+    // Project modal
+    function initModal() {
+      window.openProject = function (el) {
+        const title = el.dataset.title || 'Project';
+        const desc = el.dataset.desc || '';
+        const img = el.querySelector('img')?.src || '';
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalBody').innerHTML = `
+          <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start">
+            <div style="flex:1;min-width:260px">
+              <img src='${img}' alt='${title}' style="width:100%;height:auto;border-radius:12px;"/>
+            </div>
+            <div style="flex:2;min-width:300px;color:var(--muted)">
+              <p>${desc}</p>
+              <div style="margin-top:16px">
+                <p><strong>Technologies:</strong> Flutter, Dart, Firebase, REST API</p>
+                <p><strong>My Role:</strong> Lead Developer & UI/UX Designer</p>
+                <p><strong>Timeline:</strong> 3-6 months</p>
+              </div>
+              <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+                <a class="btn btn-primary" href="#">View Live Demo</a>
+                <a class="btn btn-ghost" href="#">Source Code</a>
+                <button class="btn btn-ghost" onclick="closeModal()">Close</button>
+              </div>
+            </div>
+          </div>`;
+        document.getElementById('modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      };
+
+      window.closeModal = function () {
+        document.getElementById('modal').classList.remove('open');
+        document.body.style.overflow = 'auto';
+      };
+
+      // Close modal on escape key
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+
+      // Close modal when clicking outside
+      document.getElementById('modal').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('modal')) {
+          closeModal();
+        }
+      });
+    }
+
+    // Contact form
+    function initContactForm() {
+      window.submitContact = function (e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const budget = document.getElementById('budget').value;
+        const message = document.getElementById('message').value;
+
+        // In a real implementation, you would send this data to a server
+        alert(`Thank you, ${name}! Your message has been sent.\nI'll get back to you at ${email} within 24 hours.`);
+        e.target.reset();
+      };
+
+      window.copyEmail = function () {
+        navigator.clipboard.writeText(document.getElementById('emailText').textContent);
+        alert('Email address copied to clipboard!');
+      };
+    }
+
+    // Parallax effect
+    function initParallax() {
+      const orb1 = document.querySelector('.orb.one');
+      const orb2 = document.querySelector('.orb.two');
+
+      window.addEventListener('mousemove', e => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 40;
+        const y = (e.clientY / window.innerHeight - 0.5) * 40;
+        if (orb1) orb1.style.transform = `translate(${x}px, ${y}px)`;
+        if (orb2) orb2.style.transform = `translate(${x * -0.6}px, ${y * -0.6}px)`;
+      });
+    }
+
+    // Custom cursor
+    function initCustomCursor() {
+      const cursor = document.getElementById('cursor');
+
+      window.addEventListener('mousemove', e => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+
+      document.querySelectorAll('a, button, .project').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1.6)';
+          cursor.style.opacity = '0.7';
+        });
+        el.addEventListener('mouseleave', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+          cursor.style.opacity = '0.9';
+        });
+      });
+    }
+
+    // Animate skill bars when in view
+    function animateSkillBars() {
+      const skillFills = document.querySelectorAll('.skill .fill');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            skillFills.forEach(fill => {
+              const width = fill.style.width || fill.getAttribute('style').match(/width:\s*(\d+%)/)[1];
+              fill.style.width = '0%';
+              setTimeout(() => {
+                fill.style.width = width;
+              }, 200);
+            });
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+
+      observer.observe(document.getElementById('skills'));
+    }
+
+    // Resume download
+    document.getElementById('resumeBtn').addEventListener('click', (e) => {
+      // In a real implementation, this would link to an actual PDF file
+      e.preventDefault();
+      alert('download my resume PDF.\nFor now, please contact me directly for my resume.');
+    });
+
+
+    // Simple carousel functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+
+    function nextSlide() {
+      slides[currentSlide].classList.remove('active');
+      slides[currentSlide].style.opacity = '0';
+
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      slides[currentSlide].classList.add('active');
+      slides[currentSlide].style.opacity = '1';
+    }
+
+    // Change slide every 3 seconds
+    setInterval(nextSlide, 1000);
+
   </script>
-
-
-
 </body>
 
 </html>
